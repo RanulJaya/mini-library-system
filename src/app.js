@@ -1,1 +1,0 @@
-import "../public/script/main.js"

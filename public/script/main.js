@@ -1,11 +1,13 @@
 import "../styles/style.css"
 
-const btn = document.querySelector(".button2")
+addElement()
 
-function test(){
-    alert("Hello World!!!")
+function addElement() {
+  // create a new div element
+  document.getElementById("button").innerHTML = '<ul><li><a href =' + '/' + ' aria-label = "Home">Home</a></li>'
+                                                +'<li><a href =' + '/books' + '>Books</a></li>'
+                                                +'<li><a href =' + '/' + '>About us</a> </ul></li>'
 }
 
 
-btn.addEventListener("click", test)
-document.body.style.display = "block"
+

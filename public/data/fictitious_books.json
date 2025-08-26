@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "The Silent Library",
+        "author": "Emily Carter",
+        "genre": "Mystery",
+        "year_published": 2015,
+        "isbn": "978-1-23456-789-0",
+        "available": true
+    },
+    {
+        "id": 2,
+        "title": "Whispers of the Code",
+        "author": "James Thornton",
+        "genre": "Technology",
+        "year_published": 2018,
+        "isbn": "978-1-23456-789-1",
+        "available": false
+    },
+    {
+        "id": 3,
+        "title": "Dreams Beyond Stars",
+        "author": "Sophia Lin",
+        "genre": "Science Fiction",
+        "year_published": 2021,
+        "isbn": "978-1-23456-789-2",
+        "available": true
+    },
+    {
+        "id": 4,
+        "title": "The Forgotten Garden",
+        "author": "Michael Green",
+        "genre": "Historical Fiction",
+        "year_published": 2012,
+        "isbn": "978-1-23456-789-3",
+        "available": true
+    },
+    {
+        "id": 5,
+        "title": "AI and Us",
+        "author": "Laura Kim",
+        "genre": "Non-Fiction",
+        "year_published": 2020,
+        "isbn": "978-1-23456-789-4",
+        "available": false
+    }
+]

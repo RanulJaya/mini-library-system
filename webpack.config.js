@@ -1,33 +1,58 @@
 // webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const fs = require('fs');
 
 module.exports = {
   mode: "development",
-  entry: "./src/app.js",
+  entry: './public/script/main',
   output: {
     filename: "app.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
+  resolve: {
+    fallback: {
+      fs: false,
+    },
+  },
   devtool: "eval-source-map",
   devServer: {
-    watchFiles: ["./public/homepage.html"],
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 3001,
+    setupMiddlewares: (middlewares, devServer) => {
+
+    devServer.app.get('/list', (req, res) => {
+      fs.readFile('public/data/fictitious_books.json', 'utf8', (err, data) => {
+        if (err) {
+          console.error('Error reading file:', err);
+          return;
+        }
+        res.send(data)
+      })
+    })
+
+    devServer.app.get('/books', (req, res) => {
+      res.sendFile(path.join(__dirname, 'dist', 'books.html'))
+    })
+
+
+    return middlewares;
+     }
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./public/homepage.html",
-    }),
-  ],
   module: {
     rules: [
+      // {
+      //   test: /\.css$/i,
+      //   use: "style-loader"
+      // },
       {
         test: /\.css$/i,
-        use: "style-loader"
-      },
-      {
-        test: /\.css$/i,
-        use: "css-loader"
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       {
         test: /\.html$/i,
@@ -39,4 +64,16 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/components/homepage.html"
+    }),
+    new HtmlWebpackPlugin({
+      filename: "books.html",
+      template: "./public/components/books.html"
+    }),
+    new MiniCssExtractPlugin({ 
+      filename: "style.css"
+    })
+  ]
 };
