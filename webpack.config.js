@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const fs = require('fs');
 
+
 module.exports = {
   mode: "development",
   entry: './public/script/main',
@@ -23,7 +24,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
-    port: 3001,
+    port: 8080,
     setupMiddlewares: (middlewares, devServer) => {
 
     devServer.app.get('/list', (req, res) => {
@@ -46,10 +47,6 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.css$/i,
-      //   use: "style-loader"
-      // },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
@@ -62,6 +59,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
     ],
   },
   plugins: [
