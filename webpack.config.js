@@ -7,28 +7,26 @@ const fs = require('fs');
 
 module.exports = {
   mode: "development",
-  entry: './public/script/main',
-  output: {
-    filename: "app.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
+  entry: {
+    index: './src/public/script/main.js',
+    books: './src/public/script/bundle.js'
   },
-  resolve: {
-    fallback: {
-      fs: false,
-    },
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "build"),
+    clean: true,
   },
   devtool: "eval-source-map",
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'src/public'),
     },
     compress: true,
     port: 8080,
     setupMiddlewares: (middlewares, devServer) => {
 
     devServer.app.get('/list', (req, res) => {
-      fs.readFile('public/data/fictitious_books.json', 'utf8', (err, data) => {
+      fs.readFile('src/public/data/fictitious_books.json', 'utf8', (err, data) => {
         if (err) {
           console.error('Error reading file:', err);
           return;
@@ -38,7 +36,7 @@ module.exports = {
     })
 
     devServer.app.get('/books', (req, res) => {
-      res.sendFile(path.join(__dirname, 'dist', 'books.html'))
+      res.sendFile(path.join(__dirname, 'build', 'books.html'))
     })
 
 
@@ -67,11 +65,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/components/homepage.html"
+      template: "./src/public/components/homepage.html"
     }),
     new HtmlWebpackPlugin({
       filename: "books.html",
-      template: "./public/components/books.html"
+      template: "./src/public/components/books.html"
     }),
     new MiniCssExtractPlugin({ 
       filename: "style.css"

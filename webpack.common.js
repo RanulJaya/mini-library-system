@@ -3,9 +3,10 @@
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const fs = require('fs');
 
- module.exports = {
+module.exports = {
    entry: {
-     app: './public/script/main.js',
+     app: './src/public/script/main.js',
+     books: './src/public/script/bundle.js'
    },
    plugins: [
      new HtmlWebpackPlugin({
@@ -27,7 +28,7 @@ const fs = require('fs');
        setupMiddlewares: (middlewares, devServer) => {
    
        devServer.app.get('/list', (req, res) => {
-         fs.readFile('public/data/fictitious_books.json', 'utf8', (err, data) => {
+         fs.readFile('src/public/data/fictitious_books.json', 'utf8', (err, data) => {
            if (err) {
              console.error('Error reading file:', err);
              return;
@@ -66,14 +67,15 @@ const fs = require('fs');
      },
      plugins: [
        new HtmlWebpackPlugin({
-         template: "./public/components/homepage.html"
+         template: "./src/public/components/homepage.html"
        }),
        new HtmlWebpackPlugin({
          filename: "books.html",
-         template: "./public/components/books.html"
+         template: "./src/public/components/books.html"
        }),
        new MiniCssExtractPlugin({ 
          filename: "style.css"
        })
      ]
  };
+

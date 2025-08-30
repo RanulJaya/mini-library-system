@@ -172,3 +172,53 @@ li a {
 .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
 
 .cta{display:flex;gap:20px;align-items:center}
+
+
+
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+.search-text {
+    display: block;
+    text-decoration: none;
+}
+
+.dataset {
+    padding-right: -40px;
+}
+
+.dataset1 {
+    display: block;
+    font-weight: initial;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #0f172a;
+}
+
+.search-text{
+    width: 260px;
+    margin-top: -5px;
+    background-color: #ccc;
+    opacity: 0.5;
+    color: #0f172a;
+}

@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "webpack serve --open --config webpack.dev.js",
+    "test": "webpack --config webpack.dev.js",
+    "serv": "webpack serve --open --config webpack.dev.js",
     "serve": "npx webpack",
-    "start": "webpack serve --open --config webpack.prod.js"
+    "start": "webpack serve --open --config webpack.prod.js",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
