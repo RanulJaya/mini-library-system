@@ -9,15 +9,16 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+     
     <title>Mini Libray</title>
 </head>
     <body>
-        
+        <!-- The top of the page contents divider -->
         <div class="topbar">
             <div class="container1">📚 Welcome to the Library of Ohara — discover, borrow, and track your reading.</div>
         </div>
 
+        <!-- logo of the website -->
         <div class="logo-header">
             <div class="container" style="width: 100px;">
                 <a href="/">
@@ -32,28 +33,60 @@
                     </svg>
                 </a>
             </div>
+            <!-- Title of the page -->
             <h1>Mini Library System</h1>
         </div>
 
+        <!-- Navbar that uses JS in the background -->
         <div class="navbar" id="bar">
             <div class="button" id="button"></div>
         </div>
         
-        
-        <div class="topnav">
-            <div class="search-container">
-                <form action="/action_page.php">
+        <!-- box for the search bar contents -->
+        <div class="flexibox">
+            <div class="topnav">
+                <div class="search-container">
                     <input type="text" placeholder="Search.." name="search" class="search-box" >
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </div>        
+                </div>
+                <div class="search-text">
+                    <div class="dataset"></div>
+                </div>
+            </div>        
 
-        <div class="search-text">
-            <div class="dataset">
-                
+            <!-- Prints out the contents of the title and isbn when selected. JS is being used to update it -->
+            <div class="book-title">
+                <p class="isbn"></p>
+                <p class="title"></p>
             </div>
         </div>
 
+        <!-- info sent to the api -->
+        <section class="book-section">
+            <p>Add Book:</p>
+            <form action="/api" method="post">
+
+                <input type="hidden" id="book-id" name="id">
+
+                <label for="book-name">Book Name:</label>
+                <input type="text" id="book-id" name="title"><br><br>
+                
+                <label for="author-name">author:</label>
+                <input type="text" id="author-id" name="author"><br><br>
+                
+                <label for="isbn-name">genre:</label>
+                <input type="text" id="genre-id" name="genre"><br><br>
+                
+                <label for="year-pub">year:</label>
+                <input type="text" id="year-id" name="year_published"><br><br>
+                
+                <label for="isbn-name">ISBN:</label>
+                <input type="text" id="isbn-id" name="isbn"><br><br>
+                
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
     </body>
+
+
 </html>

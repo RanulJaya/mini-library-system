@@ -3,6 +3,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const fs = require('fs');
+const json = require('./src/public/data/fictitious_books.json');
+const  urlencoded = require('express');
+const bodyparser = require('body-parser')
+
 
 
 module.exports = {
@@ -25,8 +29,16 @@ module.exports = {
     port: 8080,
     setupMiddlewares: (middlewares, devServer) => {
 
+    
+    devServer.app.use(urlencoded.static('dist'))
+    devServer.app.use(urlencoded.json()) // for parsing application/json
+    devServer.app.use(urlencoded.text())
+    devServer.app.use(urlencoded.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+    devServer.app.use(bodyparser.text({type: 'text/html'}))
+    devServer.app.use(bodyparser.text({type: 'application/javascript'}))
+
     devServer.app.get('/list', (req, res) => {
-      fs.readFile('src/public/data/fictitious_books.json', 'utf8', (err, data) => {
+      fs.readFile(json, 'utf8', (err, data) => {
         if (err) {
           console.error('Error reading file:', err);
           return;

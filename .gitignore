@@ -2,3 +2,5 @@
 /dist
 /test
 /build
+/.venv
+/src/public/web-scrapper/__target__

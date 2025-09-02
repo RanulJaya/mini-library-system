@@ -166,13 +166,22 @@ li a {
 }
 
 .btn{
-    text-decoration: none;appearance:none;border:0;background:var(--brand);color:#fff;padding:.6rem .9rem;border-radius:12px;font-weight:700;box-shadow:var(--shadow);cursor:pointer;
-    list-style-type: none;}
+    text-decoration: none;
+    appearance:none;
+    border:0;
+    background:var(--brand);
+    color:#fff;padding:.6rem .9rem;
+    border-radius:12px;
+    font-weight:700;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    list-style-type: none;
+}
+
 .btn.secondary{background:#eef2ff;color:var(--brand);box-shadow:none;font-weight:700}
 .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
 
 .cta{display:flex;gap:20px;align-items:center}
-
 
 
 
@@ -206,12 +215,15 @@ li a {
     padding-right: -40px;
 }
 
-.dataset1 {
+#dataset1{
     display: block;
     font-weight: initial;
     text-decoration: none;
     margin-top: 10px;
     margin-left: 10px;
+}
+
+#dataset1 a {
     color: #0f172a;
 }
 
@@ -221,4 +233,20 @@ li a {
     background-color: #ccc;
     opacity: 0.5;
     color: #0f172a;
+}
+
+.book-title {
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.flexibox {
+    display: flex;
+}
+
+.book-section {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 100px;
+    margin-left: 20px;
 }
