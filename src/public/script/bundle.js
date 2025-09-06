@@ -1,5 +1,6 @@
 const searchBtn = document.querySelector(".search-box")
 
+
 // fetch data from the port
 async function fecthData() {
     const url = "http://localhost:8080/list";
@@ -65,7 +66,8 @@ if (searchBtn !== null ) {
 
                 // check the search and add . to the titles when clicked
                 const refClick = []
-
+                
+                //iterate through the index and replace it to a list
                 for (let index = 0; index < value.length; index++) {
                     refClick[index] = document.querySelector("#dataset1." +value[index].replaceAll(' ', '.')) 
                 }

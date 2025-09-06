@@ -5,6 +5,7 @@ const fs = require('fs');
 const json = require('./src/public/data/fictitious_books.json');
 const  urlencoded = require('express');
 const bodyparser = require('body-parser')
+const { Pool, Client } = require('pg')
 
 // export modules
 module.exports = {
@@ -44,6 +45,7 @@ module.exports = {
         
       //  get the list of the json format
        devServer.app.get('/list', (req, res) => {
+
         // read the file and send it to the link mentioned
          fs.readFile('src/public/data/fictitious_books.json', 'utf8', (err, data) => {
            if (err) {

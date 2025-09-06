@@ -12,6 +12,8 @@ const runServer = async () => {
   console.log('Starting server...');
   await server.start();
 
+
+
 };
 
 

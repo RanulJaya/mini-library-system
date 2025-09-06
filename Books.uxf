@@ -5,7 +5,7 @@ Name:String
 Age:int
 Gender:String
 School:String
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>60</y><w>180</w><h>130</h></coordinates><panel_attributes>Books
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>40</y><w>180</w><h>130</h></coordinates><panel_attributes>Books
 --
 Id: int, PRIMARY KEY
 Title: String
@@ -13,6 +13,7 @@ Author:String
 Year:int
 Genre: String
 ISBN: String
+GenreId: inr
 
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>380</y><w>300</w><h>130</h></coordinates><panel_attributes>Borrowed Books
 --
@@ -26,9 +27,9 @@ Priority: int
 
 
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>180</y><w>120</w><h>220</h></coordinates><panel_attributes>lt=&lt;-
-m1=0..n</panel_attributes><additional_attributes>90;200;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>180</y><w>190</w><h>220</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>90;200;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>160</y><w>90</w><h>240</h></coordinates><panel_attributes>lt=&lt;-
 m1= 1
-m2= 1</panel_attributes><additional_attributes>10;200;170;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>660</x><y>350</y><w>250</w><h>150</h></coordinates><panel_attributes>Note..
+m2= 1</panel_attributes><additional_attributes>10;220;60;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>660</x><y>350</y><w>250</w><h>150</h></coordinates><panel_attributes>Note..
 bg=blue
 --
 If the book is lost after 30 days,
@@ -37,4 +38,9 @@ Priority is to represent the amount of times
 the book has been borrowed from the 
 public. 1 means it has been borrowed a lot
 whereas 5 is the least borrowed. (Comes 
-from the number of times borrowed row)</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+from the number of times borrowed row)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>50</y><w>210</w><h>70</h></coordinates><panel_attributes>Genre
+--
+id: int, Primary Key
+genre: String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>580</x><y>80</y><w>140</w><h>90</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>10;70;120;10</additional_attributes></element></diagram>
