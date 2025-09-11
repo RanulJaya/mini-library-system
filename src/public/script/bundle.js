@@ -3,7 +3,7 @@ const searchBtn = document.querySelector(".search-box")
 
 // fetch data from the port
 async function fecthData() {
-    const url = "http://localhost:8080/list";
+    const url = "http://localhost:8443/list";
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -28,7 +28,7 @@ async function fecthData() {
 
 // fetch data from the port this time the whole list
 async function fecthDatalist() {
-    const url = "http://localhost:8080/list";
+    const url = "http://localhost:8443/list";
     try {
         const response = await fetch(url);
         if (!response.ok) {
