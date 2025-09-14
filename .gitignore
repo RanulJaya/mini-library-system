@@ -4,3 +4,4 @@
 /build
 /.venv
 /src/public/web-scrapper/__target__
+/src/public/data/serverdetails.json

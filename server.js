@@ -1,10 +1,13 @@
+// import { Client } from 'pg'
 const  express = require('express');
 const app = express()
-const port = 8443
+const port = 8080
 const requestMiddleware  = require('./src/public/middleware/middleware.js')
 const bodyparser = require('body-parser')
 const path = require('path')
 const fs = require('fs');
+const pgp = require('pg-promise')(/* options */)
+
 
 app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.json()) // for parsing application/json
@@ -14,16 +17,17 @@ app.use(bodyparser.text({type: 'text/html'}))
 app.use(bodyparser.text({type: 'application/javascript'}))
 
 
-app.get('/list', (req, res) => {
+app.get('/list', async(req, res) => {
 
-// read the file and send it to the link mentioned
-    fs.readFile('src/public/data/fictitious_books.json', 'utf8', (err, data) => {
-    if (err) {
-        console.error('Error reading file:', err);
-        return;
-    }
-    res.send(data)
-    })
+    const details = require('./src/public/data/serverdetails.json' )
+    const db = pgp(details['connectionString'])
+
+    // read the database and send it to the link mentioned
+    await db.query('SELECT $1:name FROM $2:name', ['*', 'books']).then(
+        (data) => {
+            res.send(JSON.stringify(data, null, 4))
+        }
+    ).finally(db.$pool.end)    
 })
 
 app.use(requestMiddleware({opt1 : path.join(__dirname, 'dist')}))

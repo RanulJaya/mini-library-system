@@ -158,59 +158,5 @@
 		"year_published": "",
 		"isbn": "",
 		"available": true
-	},
-	{
-		"id": 19,
-		"title": "asdasd",
-		"author": "",
-		"genre": "",
-		"year_published": "",
-		"isbn": "",
-		"available": true
-	},
-	{
-		"id": 20,
-		"title": "asdas",
-		"author": "asda",
-		"genre": "asdsa",
-		"year_published": "sdf",
-		"isbn": "sdf",
-		"available": true
-	},
-	{
-		"id": 21,
-		"title": "xzdxc",
-		"author": "",
-		"genre": "",
-		"year_published": "",
-		"isbn": "",
-		"available": true
-	},
-	{
-		"id": 22,
-		"title": "wserwe",
-		"author": "2",
-		"genre": "ewrew",
-		"year_published": "ewr",
-		"isbn": "wer",
-		"available": true
-	},
-	{
-		"id": 23,
-		"title": "a",
-		"author": "a",
-		"genre": "a",
-		"year_published": "a",
-		"isbn": "a",
-		"available": true
-	},
-	{
-		"id": 24,
-		"title": "test348",
-		"author": "tes",
-		"genre": "tes",
-		"year_published": "test",
-		"isbn": "test",
-		"available": true
 	}
 ]

@@ -12,6 +12,17 @@
     --shadow: 0 10px 25px rgba(2,6,23,.08), 0 3px 8px rgba(2,6,23,.06);
 }
 
+.firstPage {
+   display: none;
+}
+
+#widget-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 200px;
+}
+
  body{
     margin:0;
     font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;

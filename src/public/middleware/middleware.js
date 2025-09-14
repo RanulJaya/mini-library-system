@@ -20,8 +20,6 @@ module.exports  = function (option){
                 const convertToString = JSON.stringify(dataNewX[0], null, "\t")
 
                 fs.writeFileSync('src/public/data/fictitious_books.json', convertToString)
-
-                
             })
 
             res.redirect('/books')
