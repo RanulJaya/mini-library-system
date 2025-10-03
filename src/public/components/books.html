@@ -9,6 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
      
     <title>Mini Libray</title>
 </head>
@@ -63,12 +64,12 @@
         <!-- info sent to the api -->
         <section class="book-section">
             <p>Add Book:</p>
-            <form action="/api" method="post">
+            <form action="">
 
                 <input type="hidden" id="book-id" name="id">
 
                 <label for="book-name">Book Name:</label>
-                <input type="text" id="book-id" name="title"><br><br>
+                <input type="text" id="book-name-id" name="title"><br><br>
                 
                 <label for="author-name">author:</label>
                 <input type="text" id="author-id" name="author"><br><br>
@@ -82,7 +83,7 @@
                 <label for="isbn-name">ISBN:</label>
                 <input type="text" id="isbn-id" name="isbn"><br><br>
                 
-                <input type="submit" value="Submit">
+                <input type="button" id="submit-value" value="submit">
             </form>
         </section>
 

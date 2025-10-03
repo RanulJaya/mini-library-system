@@ -1,4 +1,5 @@
 const searchBtn = document.querySelector(".search-box")
+const submitBtn = document.getElementById("submit-value")
 
 
 // fetch data from the port
@@ -96,4 +97,33 @@ if (searchBtn !== null ) {
         
     }
 }
+
+// submit button text
+submitBtn.addEventListener("click", async function(){
+
+    // init values
+    const titleValue = document.getElementById('book-name-id').value
+    const authorValue = document.getElementById('author-id').value
+    const genreValue = document.getElementById('genre-id').value
+    const yearValue = document.getElementById('year-id').value
+    const ISBNValue = document.getElementById('isbn-id').value
+
+    // ajax requests
+    var request =  $.ajax({
+        url:"/api",
+        method:"POST",
+        data: {title: titleValue, author: authorValue, genre: genreValue, year: yearValue, isbn: ISBNValue},
+        dataType: "json"
+    })
+
+    // if successful, then print completed
+    request.done(function(msg){
+        console.log("Completed")
+    })
+
+    //  if fail, then send reason for fail
+    request.fail(function( jqXHR, textStatus ) {
+    console.log( "Request failed: " + textStatus );
+    });
+})
 

@@ -1,29 +1,33 @@
 module.exports  = function (option){
-    return function (req, res, next) {
+    return async function (req, res, next) {
+        // init parameters for postgres
         const fs = require('fs');
+        const pgp = require('pg-promise')(/* options */)
+
+        const details = require('../data/serverdetails.json' )
+        const db = pgp(details['connectionString'])
+        const getQuery = pgp(details['connectionString'])
+        const tableName = 'books'
 
         if(req.url === '/api'){
-            fs.readFile('src/public/data/fictitious_books.json', 'utf8', (err, data) => {
-                if (err) {
-                    console.error('Error reading file:', err);
-                    return;
+
+            // initialize insert query
+            const insertQuery = `INSERT INTO "${tableName}" ("title", "author", "isbn", "available", "genreid", "year")
+            VALUES($1, $2, $3, $4, $5, $6)`
+
+            // get query from the table
+            await getQuery.query(`SELECT id FROM $1:name WHERE genre = $2`, ["genre", req.body['genre']])
+            .then(async(genreData) => {
+
+                if(genreData != '[]'){
+                    // insert in new query to books
+                    await db.query(insertQuery, [req.body['title'], req.body['author'], req.body['isbn'], true, genreData[0]['id'], req.body['year']])
+                    .then((data) => {
+                        res.send(data)
+                    })
                 }
-                
-                const dataNewX = Array(JSON.parse(data))
 
-                dataNewX[0].push(req.body)
-                
-                dataNewX[0][dataNewX[0].length - 1]['id'] = dataNewX[0].length
-                dataNewX[0][dataNewX[0].length - 1]['available'] = true
-
-                // res.send(dataNewX)
-                const convertToString = JSON.stringify(dataNewX[0], null, "\t")
-
-                fs.writeFileSync('src/public/data/fictitious_books.json', convertToString)
-            })
-
-            res.redirect('/books')
-
+            }).finally(db.$pool.end)
         }
 
         next()

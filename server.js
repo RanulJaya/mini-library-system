@@ -34,8 +34,6 @@ app.use(requestMiddleware({opt1 : path.join(__dirname, 'dist')}))
 
 app.get('/books', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'books.html'))
-
-    
 })
 
 
